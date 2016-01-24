@@ -22,6 +22,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # gem install mongoid
 gem 'mongoid', '~> 5.0.0'
+# mongoid migrations
+gem 'mongoid_rails_migrations', '~> 1.1'
 
 
 # Use ActiveModel has_secure_password
