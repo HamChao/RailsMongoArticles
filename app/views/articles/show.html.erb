@@ -1,19 +1,77 @@
+<div class="cover-img">
+    <img src="<%= @article.cover_url %>" alt="" width="100%">
+</div>
 <p id="notice"><%= notice %></p>
+<div class="article-container">
+    <div class="contents">
+        <h1 class="text-center">
+        	<%= @article.title %>
+        </h1>
+        <p class="content">
+        	<%= @article.content %>
+        </p>
+    </div>
+    <div class="comments-panel">
+    	<div class="block">
+	    	<div class="comment-box">
+		    	<%= form_for [@article, @comment] do |f| %>
+				  <% if @comment.errors.any? %>
+				    <div id="error_explanation">
+				      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @article.content %>
-</p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @article.author %>
-</p>
+				      <ul>
+				      <% @comment.errors.full_messages.each do |message| %>
+				        <li><%= message %></li>
+				      <% end %>
+				      </ul>
+				    </div>
+				  <% end %>
+				  <div class="field">
+				    <%= f.label :Response %><br>
+				    <%= f.text_area :body, rows: '3' %>
+				  </div>
+				  <div class="actions">
+				    <%= f.submit "Comment" %>
+				  </div>
+				<% end %>
+	    	</div>
+    	</div>
+		<div class="block">
+	        <h3 class="comment-label">
+	        	<%= "#{@article.comments.count} Comments" %>
+	    	</h3>
+		</div>
+		<% @article.comments.each do |comment| %>
+        <div class="block">
+            <div class="row">
+                <div class="col-md-2">
+                    <img src="<%= comment.user.avatar_url %>" alt="" class="img-circle" width="100%">
+                </div>
+                <div class="col-md-10">
+                	<div class="row">
+                		<div class="col-md-8">
+		                    <p class="comment-user">
+		                    	<%= comment.user.name %>
+		                    </p>
+                		</div>
+                		<div class="col-md-4">
+	                	    <%= link_to 'Show', [@article, comment] %> |
+						    <%= link_to 'Edit', [:edit, @article, comment] %> |
+						    <%= link_to 'Destroy', [@article, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+                		</div>
+                	</div>
+                    <p class="comment-datetime">
+                    	<%= comment.created_at %>
+                    </p>
+                    <p class="comment-body">
+                    	<%= comment.body %>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</div>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>

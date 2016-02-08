@@ -25,6 +25,8 @@ gem 'mongoid', '~> 5.0.0'
 # mongoid migrations
 gem 'mongoid_rails_migrations', '~> 1.1'
 
+# For windows
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

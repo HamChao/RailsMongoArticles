@@ -5,11 +5,16 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.all
+    # @articles.each do |article|
+    #   article.content = article.content.first(10)
+    # end
   end
 
   # GET /articles/1
   # GET /articles/1.json
   def show
+    # abort @article.comments.inspect
+    @comment = Comment.new
   end
 
   # GET /articles/new
@@ -24,7 +29,13 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
+    @user = User.last
     @article = Article.new(article_params)
+    @article.author = User.new(
+      :id => @user.id,
+      :name => @user.name, 
+      :avatar_url => @user.avatar_url
+    )
 
     respond_to do |format|
       if @article.save
@@ -69,6 +80,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :content, :author)
+      params.require(:article).permit(:title, :content, :cover_url)
     end
 end

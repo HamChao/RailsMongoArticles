@@ -1,0 +1,117 @@
+body {
+    color: #393d40;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    margin-top: 50px;
+}
+
+.navbar {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 0px;
+}
+
+.navbar-custom {
+    background: #fff;
+}
+
+.cover-img {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    max-height: 400px;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 30px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.article-container {
+    margin-top: 400px;
+    padding: 20px 0px;
+}
+
+.contents {
+    margin-bottom: 60px;
+}
+
+p.content {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.header {
+    padding-top: 30px;
+}
+
+.header h1 {
+    font-family: 'Lobster', cursive;
+}
+
+.section {
+    margin-top: 40px;
+    border-bottom: 1px solid #ddd;
+}
+
+.section a:link {
+    color: #393d40;
+    text-decoration: none;
+}
+
+.section a:hover {
+    color: #666;
+    text-decoration: none;
+}
+
+.section a:active {
+    color: #393d40;
+    text-decoration: none;
+}
+
+.section a:visited {
+    color: #393d40;
+    text-decoration: none;
+}
+
+.read-more {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.block {
+    border-top: 1px solid #ddd;
+    padding: 20px 0px;
+}
+
+.comment-label {
+    margin: 0px;
+}
+
+p.comment-user {
+    font-size: 20px;
+    margin: 0px;
+}
+
+p.comment-datetime {
+    margin: 0px;
+}
+
+p.comment-body {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+textarea {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 100%;
+}
