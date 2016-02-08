@@ -43,31 +43,32 @@
 		</div>
 		<% @article.comments.each do |comment| %>
         <div class="block">
-            <div class="row">
-                <div class="col-md-2">
-                    <img src="<%= comment.user.avatar_url %>" alt="" class="img-circle" width="100%">
+            <div class="media">
+                <div class="media-left">
+                    <%= link_to comment.user do %>
+                        <img src="<%= comment.user.avatar_url %>" alt="" class="img-circle" width="60px">
+                    <% end %>
                 </div>
-                <div class="col-md-10">
-                	<div class="row">
-                		<div class="col-md-8">
-		                    <p class="comment-user">
-		                    	<%= comment.user.name %>
-		                    </p>
-                		</div>
-                		<div class="col-md-4">
-	                	    <%= link_to 'Show', [@article, comment] %> |
-						    <%= link_to 'Edit', [:edit, @article, comment] %> |
-						    <%= link_to 'Destroy', [@article, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
-                		</div>
-                	</div>
+                <div class="media-body">
+                    <ul class="list-inline text-right">
+                        <li class="user-comment">
+                            <h4 class="media-heading text-left">
+                                <%= link_to comment.user.name, comment.user %>
+                            </h4>
+                        </li>
+                        <li><%= link_to 'Show', [@article, comment] %></li> |
+                        <li><%= link_to 'Edit', [:edit, @article, comment] %></li> |
+                        <li><%= link_to 'Destroy', [@article, comment], method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                    </ul>
                     <p class="comment-datetime">
-                    	<%= comment.created_at %>
+                        <%= comment.created_at %>
                     </p>
                     <p class="comment-body">
-                    	<%= comment.body %>
+                        <%= comment.body %>
                     </p>
                 </div>
             </div>
+            
         </div>
         <% end %>
     </div>

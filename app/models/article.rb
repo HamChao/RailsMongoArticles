@@ -9,8 +9,8 @@ class Article
   field :content, type: String
   field :cover_url, type: String
 
-  embeds_one :author, class_name: 'User', inverse_of: :user
   embeds_many :comments
+  belongs_to :user
 
-  accepts_nested_attributes_for :author, :comments
+  accepts_nested_attributes_for :comments
 end

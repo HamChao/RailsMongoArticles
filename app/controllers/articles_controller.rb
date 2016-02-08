@@ -14,7 +14,6 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
-    # abort @article.comments.inspect
     @comment = Comment.new
   end
 
@@ -30,13 +29,14 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @user = User.last
+    user = current_user
     @article = Article.new(article_params)
-    @article.author = User.new(
-      :id => @user.id,
-      :name => @user.name, 
-      :avatar_url => @user.avatar_url
-    )
+    @article.user_id = user.id
+    # @article.author = User.new(
+    #   :id => user.id,
+    #   :name => user.name, 
+    #   :avatar_url => user.avatar_url
+    # )
 
     respond_to do |format|
       if @article.save

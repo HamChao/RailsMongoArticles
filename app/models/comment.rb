@@ -4,7 +4,8 @@ class Comment
   field :body, type: String
 
   embedded_in :article, inverse_of: :comments
-  embeds_one :user
+  # embeds_one :user
+  belongs_to :user
 
-  accepts_nested_attributes_for :user, :article
+  accepts_nested_attributes_for :article
 end

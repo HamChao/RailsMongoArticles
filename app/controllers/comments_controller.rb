@@ -24,14 +24,15 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @user = User.last
+    user = current_user
     @article = Article.find(params[:article_id])
     @comment = @article.comments.new(comment_params)
-    @comment.user = User.new(
-      :id => @user.id,
-      :name => @user.name,
-      :avatar_url => @user.avatar_url
-    )
+    @comment.user_id = user.id
+    # @comment.user = User.new(
+    #   :id => user.id,
+    #   :name => user.name,
+    #   :avatar_url => user.avatar_url
+    # )
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @article, notice: 'Comment was successfully created.' }
