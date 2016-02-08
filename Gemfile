@@ -24,6 +24,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'mongoid', '~> 5.0.0'
 # mongoid migrations
 gem 'mongoid_rails_migrations', '~> 1.1'
+# Flexible authentication solution for Rails with Warden
+gem 'devise', '~> 3.5', '>= 3.5.6'
 
 # For windows
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
