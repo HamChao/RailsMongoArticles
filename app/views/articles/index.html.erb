@@ -13,7 +13,7 @@
       <%= link_to article do %>
         <h1 class="text-left"><%= article.title %></h1>
       <% end %>
-      <p class="content"><%= article.content.first(235) %></p>
+      <p class="content"><%= article.content.first(235).html_safe %></p>
       <div class="row read-more">
         <div class="col-md-6">
           <%= link_to 'Read More', article %>

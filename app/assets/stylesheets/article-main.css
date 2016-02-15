@@ -23,30 +23,41 @@ body {
 }
 
 h1 {
-    font-size: 36px;
-    font-weight: 600;
+    font-size: 40px;
+    font-weight: 700;
     margin-bottom: 40px;
 }
 
-h2 {
-    font-size: 30px;
-    margin-top: 40px;
-    margin-bottom: 30px;
-}
 
 .article-container {
     margin-top: 400px;
     padding: 20px 0px;
 }
 
-.contents {
+.article-panel {
     margin-bottom: 60px;
 }
 
-p.content {
+/*Medium  Editor*/
+
+.article-body > h2 {
+    font-size: 36px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.article-body > h3 {
+    font-size: 28px;
+    color: #888888;
+}
+
+.article-body > p {
     font-size: 20px;
     margin-top: 20px;
+    line-height: 1.58;
 }
+
+/*Medium Editor*/
 
 .header {
     padding-top: 30px;

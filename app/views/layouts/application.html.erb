@@ -10,8 +10,6 @@
   <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
-  <!-- <link rel="stylesheet" href="../dist/css/medium-editor.css"> -->
-  <!-- <link rel="stylesheet" href="../dist/css/themes/default.css" id="medium-editor-theme"> -->
   <%= stylesheet_link_tag    'medium-editor' %>
   <%= stylesheet_link_tag    'default', id: "medium-editor-theme"%>
 </head>
@@ -58,8 +56,11 @@
     $("div.navbar-fixed-top").autoHidingNavbar();
 
     var editor = new MediumEditor('.editable', {
-        buttonLabels: 'fontawesome'
-    }),
+      toolbar: {
+        buttons: ['bold', 'italic', 'underline', 'strikethrough', 'quote', 'anchor', 'image', 'justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'superscript', 'subscript', 'orderedlist', 'unorderedlist', 'pre', 'removeFormat', 'outdent', 'indent', 'h2', 'h3'],
+      },
+      buttonLabels: 'fontawesome'
+    });
     cssLink = document.getElementById('medium-editor-theme');
 
     document.getElementById('my-form').onsubmit = function (e) {
@@ -72,6 +73,10 @@
       }
       console.log(document.getElementById('hidden-content').value);
     };
+
+    var editorHideToolbar = new MediumEditor('.editable-hide-toolbar', {
+      toolbar: false
+    });
   </script>
 </body>
 </html>
