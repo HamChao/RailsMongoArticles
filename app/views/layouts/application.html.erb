@@ -9,6 +9,11 @@
   <%= stylesheet_link_tag    'article-main' %>
   <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
+  <!-- <link rel="stylesheet" href="../dist/css/medium-editor.css"> -->
+  <!-- <link rel="stylesheet" href="../dist/css/themes/default.css" id="medium-editor-theme"> -->
+  <%= stylesheet_link_tag    'medium-editor' %>
+  <%= stylesheet_link_tag    'default', id: "medium-editor-theme"%>
 </head>
 <body>
   <div class="navbar navbar-custom navbar-fixed-top bs-docs-nav" id="top" role="banner">
@@ -41,15 +46,32 @@
     <% if alert %>
       <div class="alert alert-warning"><%= alert %></div>
     <% end %>
-
+    
     <%= yield %>
   </div>
 
   <%= javascript_include_tag  'jquery-1.12.0.min' %>
   <%= javascript_include_tag  'bootstrap.min' %>
   <%= javascript_include_tag  'jquery.bootstrap-autohidingnavbar.min' %>
+  <%= javascript_include_tag  'medium-editor' %>
   <script>
     $("div.navbar-fixed-top").autoHidingNavbar();
+
+    var editor = new MediumEditor('.editable', {
+        buttonLabels: 'fontawesome'
+    }),
+    cssLink = document.getElementById('medium-editor-theme');
+
+    document.getElementById('my-form').onsubmit = function (e) {
+      var items = document.querySelectorAll('.editable'),
+          i,
+          input;
+      for (i = 0; i < items.length; i += 1) {
+          input = document.getElementById(items[i].getAttribute('data-field-id'));
+          input.value = items[i].innerHTML;
+      }
+      console.log(document.getElementById('hidden-content').value);
+    };
   </script>
 </body>
 </html>
