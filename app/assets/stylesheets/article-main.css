@@ -24,7 +24,7 @@ body {
 
 h1 {
     font-size: 40px;
-    font-weight: 400;
+    font-weight: 700;
     margin-bottom: 40px;
 }
 
@@ -51,6 +51,8 @@ h1 {
     font-size: 22px;
     font-weight: 600;
     color: #888888;
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 
 .article-body > p {
