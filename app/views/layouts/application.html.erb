@@ -5,13 +5,9 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag    'bootstrap.min', media: "all", 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag    'article-main' %>
   <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
-  <%= stylesheet_link_tag    'medium-editor' %>
-  <%= stylesheet_link_tag    'default', id: "medium-editor-theme"%>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 <body>
   <div class="navbar navbar-custom navbar-fixed-top bs-docs-nav" id="top" role="banner">
@@ -36,7 +32,6 @@
           </nav>
       </div>
   </div>
-
   <div class="container">
     <% if notice %>
       <div class="alert alert-info"><%= notice %></div>
@@ -48,35 +43,7 @@
     <%= yield %>
   </div>
 
-  <%= javascript_include_tag  'jquery-1.12.0.min' %>
-  <%= javascript_include_tag  'bootstrap.min' %>
-  <%= javascript_include_tag  'jquery.bootstrap-autohidingnavbar.min' %>
-  <%= javascript_include_tag  'medium-editor' %>
-  <script>
-    $("div.navbar-fixed-top").autoHidingNavbar();
+  <%= javascript_include_tag  'application' %>
 
-    var editor = new MediumEditor('.editable', {
-      toolbar: {
-        buttons: ['bold', 'italic', 'underline', 'strikethrough', 'quote', 'anchor', 'image', 'justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'superscript', 'subscript', 'orderedlist', 'unorderedlist', 'pre', 'removeFormat', 'outdent', 'indent', 'h2', 'h3'],
-      },
-      buttonLabels: 'fontawesome'
-    });
-    cssLink = document.getElementById('medium-editor-theme');
-
-    document.getElementById('my-form').onsubmit = function (e) {
-      var items = document.querySelectorAll('.editable'),
-          i,
-          input;
-      for (i = 0; i < items.length; i += 1) {
-          input = document.getElementById(items[i].getAttribute('data-field-id'));
-          input.value = items[i].innerHTML;
-      }
-      console.log(document.getElementById('hidden-content').value);
-    };
-
-    var editorHideToolbar = new MediumEditor('.editable-hide-toolbar', {
-      toolbar: false
-    });
-  </script>
 </body>
 </html>

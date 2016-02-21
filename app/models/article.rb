@@ -1,5 +1,6 @@
 class Article
   include Mongoid::Document
+  include Mongoid::Timestamps
   # validates_presence_of :title
   validates :title,
   			presence: true,
