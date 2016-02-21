@@ -26,8 +26,6 @@ gem 'mongoid', '~> 5.0.0'
 gem 'mongoid_rails_migrations', '~> 1.1'
 # Flexible authentication solution for Rails with Warden
 gem 'devise', '~> 3.5', '>= 3.5.6'
-# Font Awesome
-gem 'font-awesome-sass'
 
 # For windows
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
