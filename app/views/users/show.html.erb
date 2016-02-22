@@ -10,5 +10,9 @@
   <%= @user.avatar_url %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<% if user_signed_in? %>
+	<% if current_user.id == @user.id %>
+		<%= link_to 'Edit', edit_user_path(@user) %> |
+		<%= link_to 'Back', users_path %>
+	<% end %>
+<% end %>

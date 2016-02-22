@@ -57,9 +57,13 @@
                                 <%= link_to comment.user.name, comment.user %>
                             </h4>
                         </li>
-                        <li><%= link_to 'Show', [@article, comment] %></li> |
-                        <li><%= link_to 'Edit', [:edit, @article, comment] %></li> |
-                        <li><%= link_to 'Destroy', [@article, comment], method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                        <% if user_signed_in? %>
+                            <% if current_user.id == comment.user.id %>
+                                <li><%= link_to 'Show', [@article, comment] %></li> |
+                                <li><%= link_to 'Edit', [:edit, @article, comment] %></li> |
+                                <li><%= link_to 'Destroy', [@article, comment], method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                            <% end %>
+                        <% end %>
                     </ul>
                     <p class="comment-datetime">
                         <%= comment.created_at %>
@@ -75,5 +79,9 @@
     </div>
 </div>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<% if user_signed_in? %>
+    <% if current_user.id == @article.user.id %>
+        <%= link_to 'Edit', edit_article_path(@article) %> |
+        <%= link_to 'Back', articles_path %>
+    <% end %>
+<% end %>
