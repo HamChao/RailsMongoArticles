@@ -1,3 +1,6 @@
+//= require jquery
+//= require jquery_ujs
+//= require turbolinks
 //= require jquery-1.12.0.min.js
 //= require bootstrap.min.js
 //= require jquery.bootstrap-autohidingnavbar.min.js
